@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <!-- v-for -->
+    <div class="app">
+        <div>
+            <ul>
+                <!-- <li v-for="item in arr">{{item}}</li> -->
+                <li v-for="(item,index) in arr">{{item}},{{index}}</li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li v-for="item in json">{{item}}</li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:".app",
+        data:{
+            arr:["1","2","3"],
+            json:[
+                {name:"tom",age:12},
+                {name:"jack",age:13},
+                {name:"roce",age:14}
+            ]
+        }
+    })
+</script>
+</html>

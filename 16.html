@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-aa>gao</div>
+    </div>
+    <script>
+        //钩子函数：对应的阶段执行对应的方法 【自定义指令的生命周期】
+        //bind：绑定元素时被调用  只调用一次
+        //inserted：当插入到父元素上被触发
+        //updated：当前组件更新时被调用
+        //componentUpdate：当前组件和子组件都发生更新时触发
+        //unbind：解绑时被触发
+        Vue.directive("aa",{
+            bind(){
+                console.log("bind")
+            },
+            inserted(){
+                console.log("inserted")
+            },
+            updated(){
+                console.log("updated")
+            },
+            componentUpdate(){
+                console.log("componentUpdate")
+            },
+            unbind(){
+                console.log("unbind")
+            }
+        })
+
+        new Vue({
+            el:"#app",
+            data:{
+
+            },
+            methods:{
+
+            },
+          
+            
+        })
+    </script>
+</body>
+</html>

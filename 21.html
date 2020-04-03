@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{getchildmsg}}
+        <custom :data="biginfo" @receve="get"></custom>
+    </div>
+</body>
+<script>
+    //父子组件传值
+
+    Vue.component("custom",{
+        //接收父组件传递过来的信息
+        props:["data"],
+        // props:{
+        //     data:{
+        //         type:String,
+        //         default:""   //默认值
+        //     }
+        // },
+        template:`
+            <div>
+                我是全局组件----{{data}}
+                <button @click="send">send</button>
+            </div>
+        `,
+        data(){
+            return{
+                childmsg:"子传父"
+            }
+        },
+        methods:{
+            send(){
+                //emit  自定义事件   receve  自定义事件名称   this.childmsg  传递的数据
+                this.$emit("receve",this.childmsg)
+            }
+        }
+    }) 
+    new Vue({
+        el:"#app",
+        data:{
+            biginfo:"父传子",
+            getchildmsg:""
+        },
+        methods:{
+            get(val){
+                this.getchildmsg=val
+            }
+        }
+    })
+</script>
+</html>

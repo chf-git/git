@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <style>
+        .red{background: red;}
+        .border{border:10px solid black}
+    </style>
+</head>
+<body>
+    <!-- v-bind:class -->
+    <div id="app">
+       <!-- <div style="width: 100px; height: 100px;" v-bind:class="{red:isred}"></div> -->
+       <!-- <div style="width: 100px; height: 100px;" v-bind:class="[{red:isred},b]"></div> -->
+       <div style="width: 100px; height: 100px; " v-bind:class="a==1?isr:b"></div>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            isred:true,
+            b:"border",
+            isr:"red",
+            a:2
+        }
+    })
+</script>
+</html>

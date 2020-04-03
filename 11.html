@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="show">click</button>
+        <button v-on:mouseenter="show">mouseenter</button>
+        <button v-on:mouseleave="show">mouseleave</button>
+        <button v-on:mouseover="show">mouseover</button>
+        <button v-on:mouseout="show">mouseout</button>
+        <button v-on:keydown="show">keydown</button>
+        <button v-on:keyup="show">keyup</button>
+        <button v-on:dblclick="show">dblclick</button>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        data:{},
+        methods:{
+            show(){
+                console.log("执行")
+            }
+        }
+
+    })
+</script>
+</html>

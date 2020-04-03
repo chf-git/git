@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div style="width: 200px;height:200px;background: red;" @click="parent">
+        <div style="width: 100px;height:100px;background: black;" @click.stop="child"></div>
+    </div>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+
+            },
+            methods:{
+                child(ev){
+                    var ev=ev||event
+                    console.log("child")
+                    // ev.cancelBubble=true   js
+                    // ev.stopPropagation()   //jq
+                },
+                parent(){
+                    console.log("parent")
+                }
+            }
+        })
+    </script>
+</body>
+</html>

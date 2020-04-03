@@ -1,0 +1,223 @@
+vue  框架
+什么是vue？
+基于javascript构建用户界面的前端渐进式框架
+他的核心关注视图层
+
+什么是渐进式？
+
+vue的优点：轻量级   简单易学   双向数据绑定    
+           组件化   视图  数据  结构分离   虚拟dom(virtual dom)
+           运行速度快
+
+react，angular和vue的区别？
+vue  100ms  react  200ms  angular  300ms
+
+vue 内容：
+
+指令(directves)
+定义：带有v- 前缀的特殊属性
+作用：当表达式的值发生改变时，及时响应dom
+v-model   双向绑定
+v-for  循环
+v-show  显示 隐藏
+作用：用于根据条件展示元素  默认值为false 只是切换display的值
+v-if
+作用：用于根据条件展示元素  默认值为true   当值为false时 则会销毁dom
+v-else
+v-else if
+注： v-if的开销比较高(比较消耗带宽)，所以切换频繁时选择v-show即可，除非特殊的功能
+v-bind  简写  :
+传值类型：
+布尔 true  false
+数组
+表达式
+v-bind:class  :class
+v-bind:style
+v-bind:href
+v-bind:src
+v-on   绑定事件
+v-html  解析html标签
+v-text   解析文本
+v-cloak   防止页面闪烁
+v-once    只执行一次
+
+修饰符：
+.trim  去除首尾空格
+.number   将输入的字符转换为数字
+.lazy  同步输入框的值和数据
+
+
+事件
+
+普通事件
+click==>onclick
+mouseover
+mouseenter
+mousedown
+mouseup
+mouseleave
+mouseout
+keydown
+keyup
+dblclick   双击
+change
+
+事件修饰符
+.stop  阻止事件冒泡
+.prevent   阻止默认事件
+.capture   捕获
+.self  当在event.target   当前元素自身事件触发处理函数
+.once   事件只会执行一次
+.passive  告诉浏览器不想阻止事件的默认行为
+
+事件修饰符可以串联使用   @submit.prevent
+
+
+按键修饰符
+.enter
+.tab
+.ctrl
+.esc
+.right
+.left
+.down
+.up
+
+
+自定义指令
+分类：
+全局
+Vue.directive("自定义指令名称",{})
+
+局部
+directives:{
+    "自定义指令名称":{
+
+    }
+}
+
+
+自定义过滤器   filter
+作用：使视图可读性更加优雅
+分类：
+全局
+Vue.filter("过滤器名称",{})
+局部
+filters:{
+    "过滤器名称":{
+
+    }
+}
+
+生命周期
+什么是生命周期？
+生命周期函数是指组件在特定阶段调用的函数
+四个阶段    八种状态
+创建       beforeCreate(创建之前)     created(已经创建)
+挂载       beforeMount(挂载之前)      mounted(已经挂载)
+更新       beforeUpdate(更新之前)     updated(已经更新)
+销毁       beroreDestroy(销毁之前)    destroyed(已经销毁)
+
+
+组件
+分类：
+全局
+Vue.component("组件名称",{})
+局部
+components:{
+    "组件名称":{
+
+    }
+}
+
+父子
+子父
+同级(兄弟)
+
+
+动画
+
+路由
+什么是路由？
+根据url来决定请求分配到某一指定的端
+路由就是指向
+下载依赖  vue-router
+npm install vue-router --save
+配置   router/index    Vue.use(VueRouter)   export default new VueRouter({})
+显示路由视图  <router-view></router-view>
+跳转方式:
+静态路由跳转   <router-link to="/"></router-link>
+动态路由跳转   <router-link :to="{path:'/'}"></router-link>
+编程式路由     this.$router.push("/")  或者  this.$router.push({path:"/"})
+命名视图   name
+嵌套视图   children   <router-view></router-view>
+路由别名和路由重定向    alias     redirect
+路由跳转模式:  hash模式   默认为hash模式    history 模式   HTML5  history
+
+导航守卫
+分类：
+全局导航守卫
+   全局前置导航守卫    router.beforeEach()
+   全局后置导航守卫    router.afterEach()
+路由独享守卫
+
+组件内部守卫
+
+router $router 和$route 的区别？
+
+$router对象是全局路由的实例，是router构造方法的实例。
+    this.$router是VueRouter的实例方法，当导航到不同url，可以使用this.$router.push方法，
+这个方法则会向history里面添加一条记录，当点击浏览器回退按钮或者this.$router.back()就会回退之前的url。
+
+$route对象表示当前的路由信息，包含了当前 URL 解析得到的信息。包含当前的路径，参数，query对象等。
+    this.$route相当于当前激活的路由对象，包含当前url解析得到的数据，可以从对象里获取一些数据，如name,path等。
+
+axios  ajax
+什么是axios？
+axios是基于Promise用于浏览器和node.js的http请求的客户端
+特点：
+1.支持创建XMLHttpRequest
+2.支持node.js发出http请求
+3.支持Promise
+4.拦截请求和响应请求
+5.支持取消请求
+6.支持json数据
+下载：
+npm install axios --save
+
+
+vuex
+什么时vuex
+vuex是一个专为vue.js程序开发的数据状态管理模式，采用集中式数据管理状态
+vuex的核心：
+store  容器
+state  包含所有级别的应用状态对象
+mutations  修改状态的回调函数   默认为同步
+actions  异步分发
+getter   计算
+module   模块处理
+
+vue脚手架(2.0)
+安装
+npm install vue-cli -g
+
+创建项目
+npm install <template-name>  项目名称
+
+template-name:
+webpack
+webpack-simple
+pwa
+simple
+browerify
+browerify-simple
+
+vue-cli  3.0
+安装
+npm install @vue/cli -g
+创建项目
+vue create 项目名称
+
+vuecli 2.0 兼容vuecli 3.0
+npm install @vue/cli-init
+

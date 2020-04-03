@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+         <!-- <button @keydown="down">down</button> -->
+         <!-- <button @keydown.enter="down">down</button> -->
+         <!-- <button @keydown.13="down">down</button> -->
+         <!-- <button @keydown.tab="down">down</button> -->
+         <!-- <button @keydown.ctrl="down">down</button> -->
+         <button @keydown.left="down">left</button>
+         <button @keydown.up="down">up</button>
+         <button @keydown.down="down">down</button>
+         <button @keydown.right="down">right</button>
+    </div>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+
+            },
+            methods:{
+               down(){
+                console.log("按下")
+               }
+            }
+        })
+    </script>
+</body>
+</html>

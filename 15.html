@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <div style="width: 100px;height: 100px;border: 1px solid orange;" v-pink></div> -->
+        <input type="text" v-focus>
+    </div>
+    <script>
+        //全局自定义局部
+        // Vue.directive("pink",function(el){
+        //     el.style.background="#f00"
+        // })
+        // Vue.directive("focus",{
+        //     inserted(el){
+        //         el.fovus
+        //     }
+        // })
+
+
+
+
+
+        new Vue({
+            el:"#app",
+            data:{
+
+            },
+            methods:{
+
+            },
+            directives:{
+                "focus":{
+                    inserted(el){
+                        el.focus()
+                    }
+                }
+            }
+            
+        })
+    </script>
+</body>
+</html>

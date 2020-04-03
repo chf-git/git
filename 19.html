@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+        <input v-model="msg"> 
+    </div>
+</body>
+<script>
+    var vm=new Vue({
+        el:"#app",
+        data:{
+            msg:"life"
+        },
+        beforeCreate(){
+            console.log("实例创建之前")
+            console.log(this.$el)
+            console.log(this.$data)
+            console.log(this.$msg)
+        },
+        created(){
+            console.log("已经创建")
+            console.log(this.$el)
+            console.log(this.$data)
+            console.log(this.$msg)
+        },
+        beforeMount(){
+            console.log("实例挂载之前")
+            console.log(this.$el)
+            console.log(this.$data)
+            console.log(this.$msg)
+        },
+        mounted(){
+            console.log("已经挂载")
+            console.log(this.$el)
+            console.log(this.$data)
+            console.log(this.$msg)
+        },
+        beforeUpdate(){
+            console.log("实例更新之前")
+            console.log(this.$el)
+            console.log(this.$data)
+            console.log(this.$msg)
+        },
+        updated(){
+            console.log("已经更新")
+            console.log(this.$el)
+            console.log(this.$data)
+            console.log(this.$msg)
+        },
+        beroreDestroy(){
+            console.log("实例销毁之前")
+            console.log(this.$el)
+            console.log(this.$data)
+            console.log(this.$msg)
+        },
+        destroyed(){
+            console.log("已经销毁")
+            console.log(this.$el)
+            console.log(this.$data)
+            console.log(this.$msg)
+        }
+    })
+    // vm.$destroy()    // 销毁
+</script>
+</html>

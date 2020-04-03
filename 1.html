@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <!-- v-model -->
+    <div id="app">
+        <input type="text" v-model="msg">
+        {{msg}}    <!-- {{}}   插值表达式   作用：解析-->
+    </div>
+</body>
+<script>
+    //实例vue
+    new Vue({
+        el:"#app",    //el =>element  元素  挂载
+        data:{  //放置变量以及属性
+            msg:"hello vue"
+        }
+    })
+
+    // v-model    Object.definePropety() 数据劫持   set  get 
+    var cat={};
+    var name=""
+    Object.defineProperty(cat,"name",{
+        set:function(val){
+            name=val
+            console.log("猫的名字,"+name)
+        },
+        get:function(){
+            console.log("watch")
+            return name
+        }
+    })
+    cat.name="波斯猫"
+    console.log(cat.name)
+</script>
+</html>
